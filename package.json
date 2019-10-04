@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/simonyu010/ui-NW#readme",
   "devDependencies": {
+    "chromedriver": "^77.0.0",
     "nightwatch": "^1.2.4"
   }
 }
