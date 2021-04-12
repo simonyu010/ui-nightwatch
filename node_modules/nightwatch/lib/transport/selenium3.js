@@ -1,6 +1,5 @@
 const WebdriverErrors = require('./webdriver/errors.js');
 const Selenium2 = require('./selenium2.js');
-const WebdriverProtocol = require('./webdriver.js');
 const MethodMappings = require('./selenium3/actions.js');
 
 class SeleniumProtocol extends Selenium2 {
@@ -8,39 +7,65 @@ class SeleniumProtocol extends Selenium2 {
     return MethodMappings;
   }
 
+  get defaultPathPrefix() {
+    return '/wd/hub';
+  }
+
   ////////////////////////////////////////////////////////////////////
   // Elements related
   ////////////////////////////////////////////////////////////////////
-  getElementId(resultValue) {
-    if (resultValue[WebdriverProtocol.WEB_ELEMENT_ID] !== undefined) {
-      return resultValue[WebdriverProtocol.WEB_ELEMENT_ID];
+  formatCommandResponseData(result) {
+    if (!result.value || typeof result.value != 'object') {
+      return;
     }
 
-    return resultValue.ELEMENT;
+    if (result['[[isNightwatch]]']) {
+      delete result['[[isNightwatch]]'];
+
+      return;
+    }
+
+    if (typeof result.value.stackTrace != 'undefined') {
+      delete result.value.stackTrace;
+    }
   }
 
   handleProtocolError(result, response, screenshotContent) {
-    let errorMessage = response && response.statusCode === 404 ? 'Unknown command' : 'An unknown error has occurred.';
+    result = result || {};
+    response = response || {};
+
+    const {status = '', code = '', message = null, state = '', value = null} = result;
+    const {statusCode = null} = response;
+
+    let errorMessage = response.statusCode === 404 ? 'Unknown command' : 'An unknown error has occurred.';
 
     if (screenshotContent) {
       this.reporter && this.reporter.saveErrorScreenshot(result, screenshotContent);
     }
 
-    if (result.value && result.value.message) {
-      errorMessage = result.value.message;
-    } else if (result && result.state && WebdriverErrors.Response[result.state]) {
-      errorMessage = WebdriverErrors.Response[result.state].message;
+    if (code && message) {
+      errorMessage = `Error ${code}: ${message}`;
+    } else if (value && value.message) {
+      errorMessage = '';
+      if (value.error) {
+        errorMessage = `${value.error} – `;
+      }
+
+      errorMessage += value.message.split('\n')[0];
+    } else if (state && WebdriverErrors.Response[state]) {
+      errorMessage = WebdriverErrors.Response[state].message;
     } else if (response.status && response.statusMessage) {
       errorMessage += ` ${response.status} ${response.statusMessage}`;
     }
 
     return {
       status: -1,
-      state: result.state || '',
-      value : result && result.value || null,
-      errorStatus: result && result.status || '',
+      code,
+      state,
+      value,
+      errorStatus: status,
       error : errorMessage,
-      httpStatusCode: response.statusCode
+      httpStatusCode: statusCode
     };
   }
 }
