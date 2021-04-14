@@ -1,0 +1,14 @@
+name: tang-ci
+
+on: [push, pull_request] 
+
+jobs:
+  Test-all-UI:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Install packages
+      run: npm install
+    - name: Running nightwatch tests
+      run: npm run test
