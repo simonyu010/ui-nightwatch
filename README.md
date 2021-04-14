@@ -13,7 +13,7 @@
 
 ### 2. Clone the repository to local
 
- 1. Click **Code** from github interface
+ 1. Click `Code` from github interface
  2. Copy the link of this repository
  3. Using CLI (Command Prompt/terminal) to navigate to where this project will be stored
  4. Run following command
