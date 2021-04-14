@@ -1,5 +1,7 @@
 module.exports = {
     "src_folders": ["tests"],
+    "page_objects_path": "page-objects",
+    "global_path": "./globals.js",
 
     "webdriver": {
         "start_process": true,
