@@ -13,10 +13,24 @@
 
 ### 2. Clone the repository to local
 
- 1. Click **Code**
+ 1. Click **Code** from github interface
  2. Copy the link of this repository
  3. Using CLI (Command Prompt/terminal) to navigate to where this project will be stored
  4. Run following command
  ```
  git clone (link)
+ ```
+
+### 3. Installing the app dependencies
+
+ Execute the following command within the ui-nightwatch folder from **CLI**
+ ```
+ npm install
+ ```
+
+### 4. How to run a test?
+ 
+ Execute the following command to run your first test
+ ```
+ npm run test
  ```
