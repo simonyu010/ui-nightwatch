@@ -4,6 +4,17 @@ on: [push, pull_request]
 
 jobs:
   Test-all-UI:
+    docker:
+      - image: circleci/node:13.8.0-browsers
+    steps:
+      - checkout
+      - run: sudo apt-get update
+      - run: sudo apt-get install curl -y
+      - run: sudo curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+      - run: sudo apt-get install -y nodejs
+      - run: sudo npm install chromedriver
+      - run: sudo npm install nightwatch
+      - run: sudo npm run headless
 
     # runs-on: ubuntu-latest
 
@@ -21,15 +32,3 @@ jobs:
     #   run: npm ci
     # - name: Running nightwatch tests
     #   run: npm run local
-
-      docker:
-      - image: circleci/node:13.8.0-browsers
-    steps:
-      - checkout
-      - run: sudo apt-get update
-      - run: sudo apt-get install curl -y
-      - run: sudo curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-      - run: sudo apt-get install -y nodejs
-      - run: sudo npm install chromedriver
-      - run: sudo npm install nightwatch
-      - run: sudo npm run headless
