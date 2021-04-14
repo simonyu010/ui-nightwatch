@@ -5,30 +5,19 @@ on: [push, pull_request]
 jobs:
   Test-all-UI:
     runs-on: ubuntu-latest
-    docker:
-      - image: circleci/node:13.8.0-browsers
-    steps:
-      - checkout
-      - run: sudo apt-get update
-      - run: sudo apt-get install curl -y
-      - run: sudo curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-      - run: sudo apt-get install -y nodejs
-      - run: sudo npm install chromedriver
-      - run: sudo npm install nightwatch
-      - run: sudo npm run headless
-
     
-    # strategy:
-    #   matrix:
-    #     node-version: [12.x]
+    strategy:
+      matrix:
+        node-version: [12.x]
 
-    # steps:
+    steps:
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install packages
+      run: npm ci
+    - name: Running nightwatch tests
+      run: npm run local
+
     # - uses: actions/checkout@v2
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
-    # - name: Install packages
-    #   run: npm ci
-    # - name: Running nightwatch tests
-    #   run: npm run local
