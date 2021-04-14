@@ -1,7 +1,6 @@
 module.exports = {
     'Navigate to Amazon homepage': function (browser) {
         browser.url('https://www.amazon.com/');
-        browser.pause(5000);
         browser.waitForElementVisible('[id="gw-desktop-herotator"]', 15000);
     },
 
