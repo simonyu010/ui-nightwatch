@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   Test-all-UI:
+    runs-on: ubuntu-latest
     docker:
       - image: circleci/node:13.8.0-browsers
     steps:
@@ -16,8 +17,7 @@ jobs:
       - run: sudo npm install nightwatch
       - run: sudo npm run headless
 
-    # runs-on: ubuntu-latest
-
+    
     # strategy:
     #   matrix:
     #     node-version: [12.x]
