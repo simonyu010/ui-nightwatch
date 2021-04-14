@@ -18,7 +18,7 @@
  3. Using CLI (Command Prompt/terminal) to navigate to where this project will be stored
  4. Run following command
  ```
- git clone (link)
+ git clone <link>
  ```
 
 ### 3. Installing the app dependencies
