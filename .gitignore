@@ -2,3 +2,4 @@ node_modules
 tests_output
 *.log
 chromedriver.log
+package-lock.json
