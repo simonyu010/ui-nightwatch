@@ -4,7 +4,8 @@
   "description": "Repository to establish UI automation coverage for other repos",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch"
+    "local": "nightwatch --config ./nightwatch.conf.js",
+    "headless": "nightwatch --config ./headless.conf.js"
   },
   "repository": {
     "type": "git",
