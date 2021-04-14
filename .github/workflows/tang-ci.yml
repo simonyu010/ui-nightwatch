@@ -18,6 +18,6 @@ jobs:
     - name: Install packages
       run: npm install
     - name: Running nightwatch tests
-      run: npm run local
+      run: npm run headless
 
     # - uses: actions/checkout@v2
