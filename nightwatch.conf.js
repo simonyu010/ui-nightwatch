@@ -4,9 +4,16 @@ module.exports = {
     "global_path": "./globals.js",
 
     "webdriver": {
-        "start_process": true,
         "server_path": require('chromedriver').path,
-        "port": 9515
+        "cli_args": [
+          "--verbose"
+        ],
+        "port": 9515,
+        "timeout_options": {
+          "timeout": 60000,
+          "retry_attempts": 3
+        },
+        "start_process": true
     },
 
     "test_settings": {
