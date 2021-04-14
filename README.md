@@ -1,7 +1,7 @@
 # 唐 
 
 
-### Applications required prior cloning this repository
+### 1. Applications required prior cloning this repository
 
 > Mac users 
  - Install **Git** dependencies with Xcode
