@@ -1,4 +1,4 @@
-# 唐 - an automated Bot that evaluates major apps over time
+# 唐 
 
 
 ### Applications required prior cloning this repository
