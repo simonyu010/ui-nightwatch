@@ -34,3 +34,5 @@
  ```
  npm run test
  ```
+
+### 5. You should be all set to start your first test! Have fun! :+1:
