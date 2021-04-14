@@ -4,9 +4,6 @@ on: [push, pull_request]
 
 jobs:
   Test-all-UI:
-
-    runs-on: ubuntu-latest
-    
     steps:
     - name: Install packages
       run: npm install
