@@ -7,7 +7,7 @@ module.exports = {
 
     'Search for product 功夫茶': function(browser) {
         const amazon = browser.page.amazonHomePage();
-        amazon.setValue('@searchBar', '功夫茶')
+        amazon.setValue('@searchBar', '功夫茶');
         browser.pause(2000);
     }
 }
