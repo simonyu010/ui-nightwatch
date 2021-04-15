@@ -28,11 +28,11 @@
  npm install
  ```
 
-### 4. How to run a test?
+### 4. How to run all the tests?
  
  Execute the following command to run your first test
  ```
- npm run test
+ npm run local
  ```
 
 ### 5. You should be all set to start your first test! Have fun! :+1:
