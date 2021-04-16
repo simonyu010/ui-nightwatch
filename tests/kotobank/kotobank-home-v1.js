@@ -4,9 +4,8 @@ module.exports = {
         browser.waitForElementVisible('[id="toplogo"]', 15000);
     },
 
-    'Search for product 功夫茶': function(browser) {
-        browser.setValue('[id="search_input"]', '功夫茶');
-        browser.pause(2000);
+    'Search for コトバンク': function(browser) {
+        browser.setValue('[id="search_input"]', 'コトバンク');
         browser.click('[type="submit"]');
         browser.pause(5000);
     }
