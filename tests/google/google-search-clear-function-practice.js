@@ -5,11 +5,11 @@ module.exports = {
     },
 
     'Search for invalid symbol': function(browser) {
-        browser.setValue('[class="gLFyf gsfi" ]', ['khdsfgkjdsahfkj']);
-        browser.pause(2000);
+        browser.setValue('[class="gLFyf gsfi" ]', 'khdsfgkjdsahfkj');
+        browser.pause(1000);
         browser.clearValue('[class="gLFyf gsfi" ]');
-        browser.pause(2000);
-        browser.setValue('[class="gLFyf gsfi" ]', ['dfgaskdjhkjl']);
-        browser.pause(5000);
+        browser.pause(1000);
+        browser.setValue('[class="gLFyf gsfi" ]', ['dfgaskdjhkjl', browser.Keys.ENTER]);
+        browser.pause(2000); 
     }
 }
