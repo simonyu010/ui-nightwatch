@@ -6,6 +6,7 @@ module.exports = {
 
     'Test Suggestion list fuction': function(browser) {
         browser.setValue('div:nth-child(1) div:nth-child(2) input', '1216 cavalier dr');
+        browser.pause(1000);
         browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span','1216');
     },
 
