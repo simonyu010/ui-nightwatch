@@ -27,7 +27,6 @@ module.exports = {
     'Test Navigate Page': function(browser){
         browser.waitForElementVisible('[id="section-directions-trip-title-0"] span',15000);
         browser.assert.containsText('[id="section-directions-trip-title-0"] span','Cavalier Dr');
-        
     }
     
 }
