@@ -20,8 +20,7 @@ jobs:
       run: npm ci
     - name: Running nightwatch tests
       run: npm run headless
-    - name: Upload failure screenshot artifacts
       uses: actions/upload-artifact@v2
       with:
         name: failure-screenshot
-        path: ./screenshots
+        path: screenshots
