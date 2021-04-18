@@ -18,14 +18,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install packages
       run: npm ci
-    - name: Create a screenshot folder before test run
-      run: mkdir screenshots
     - name: Running nightwatch tests
       run: npm run headless
-    - name: Create a screenshot folder after test run
-      run: mkdir screenshots
     - name: Upload failure screenshot artifacts
       uses: actions/upload-artifact@v2
       with:
         name: failure-screenshot
-        path: screenshots
+        path: ./screenshots
