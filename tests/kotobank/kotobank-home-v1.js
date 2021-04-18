@@ -14,7 +14,7 @@ module.exports = {
 
     'Check VOYAGE tab': function (browser) {
         browser.url('https://kotobank.jp/');
-        browser.pause(2000)
+        browser.waitForElementVisible('[id="toplogo"]', 15000);
         browser.click('[id="ftWrap"] > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) > img:nth-child(1)');
         browser.waitForElementVisible('[src="assets/img/vmlogo_white.png"]', 15000);
         browser.expect.element('[id="pc-menu"] > ul:nth-child(2) > li:nth-child(2) > a').text.to.contain('会社概要');
