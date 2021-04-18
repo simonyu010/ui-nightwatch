@@ -24,5 +24,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: failure-screenshot
-        path: |
-          screenshots
+        path: screenshots
