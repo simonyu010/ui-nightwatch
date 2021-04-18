@@ -6,21 +6,23 @@ module.exports = {
         browser.waitForElementVisible('[id="toplogo"]', 15000);
     },
 
-    'Search for コトバンク': function(browser) {
+    'Search for ポケモン': function(browser) {
+        browser.waitForElementVisible('[id="search_input"]', 15000);
         //to-do add assertion to verify element is available to input value
-        browser.setValue('[id="search_input"]', 'コトバンク');
+        browser.setValue('[id="search_input"]', 'ポケモン');
         browser.click('[type="submit"]');
-        browser.pause(2000);
+        browser.waitForElementVisible('[id="topicPath"] > li:nth-child(2)', 15000);
+        browser.assert.containsText('[id="topicPath"] > li:nth-child(2)', 'ポケモン');
     },
 
     'Check VOYAGE tab': function (browser) {
         //browser.refresh() ?
-        browser.url('https://kotobank.jp/'); 
+        browser.back(); 
+        browser.refresh();
         browser.waitForElementVisible('[id="toplogo"]', 15000);
         //use a better selector
-        browser.click('[id="ftWrap"] > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) > img:nth-child(1)');
+        browser.click('[id="sponsor"] img');
         browser.waitForElementVisible('[src="assets/img/vmlogo_white.png"]', 15000);
         browser.expect.element('[id="pc-menu"] > ul:nth-child(2) > li:nth-child(2) > a').text.to.contain('会社概要');
-        browser.pause(2000);
     }
 }
