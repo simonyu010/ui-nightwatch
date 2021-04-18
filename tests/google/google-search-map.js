@@ -6,6 +6,7 @@ module.exports = {
 
     'Test Suggestion list fuction': function (browser) {
         let firstLineText;
+        browser.click('div:nth-child(1) div:nth-child(2) input');
         browser.setValue('div:nth-child(1) div:nth-child(2) input', '1216 cavalier dr');
         browser.pause(5000);
         browser.waitForElementVisible('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 8000);
