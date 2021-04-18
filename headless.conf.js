@@ -3,6 +3,13 @@ module.exports = {
     "page_objects_path": "page-objects",
     "global_path": "./globals.js",
 
+    screenshots: {
+        enabled: true,
+        path: "./screenshots",
+        on_failure: true,
+        on_error: true
+    },
+
     "webdriver": {
         "server_path": require('chromedriver').path,
         "cli_args": [
