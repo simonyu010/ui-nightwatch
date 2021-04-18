@@ -19,4 +19,4 @@ jobs:
     - name: Install packages
       run: npm ci
     - name: Running nightwatch tests
-      run: npm run headless
+      run: npm run local
