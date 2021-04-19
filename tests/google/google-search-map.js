@@ -8,8 +8,7 @@ module.exports = {
         let firstLineText;
         browser.click('div:nth-child(1) div:nth-child(2) input');
         browser.clearValue('div:nth-child(1) div:nth-child(2) input');
-        browser.setValue('div:nth-child(1) div:nth-child(2) input', '1216 Cavalier Drive');
-        browser.pause(5000);
+        browser.setValue('div:nth-child(1) div:nth-child(2) input', '妈的什么鬼');
         browser.waitForElementVisible('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 8000);
         browser.getText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', function(result){
             firstLineText = result.value;
