@@ -1,13 +1,14 @@
 module.exports = {
     'Navigate to Kotobank homepage': function (browser) {
         browser.url('https://kotobank.jp/');
-        browser.assert.urlContains('kotobank.jp') //use verify
-        browser.verify.containsText('[id="toplogo"]', 'コトバンク'); //wait for should happen before this line
+        browser.verify.urlContains('kotobank.jp');
         browser.waitForElementVisible('[id="toplogo"]', 15000); 
+        browser.verify.containsText('[id="toplogo"]', 'コトバンク'); 
     },
 
     'Search for ポケモン': function(browser) {
         browser.waitForElementVisible('[id="search_input"]', 15000);
+        
         //to-do add assertion to verify element is available to input value
         browser.setValue('[id="search_input"]', 'ポケモン');
         browser.click('[type="submit"]');
