@@ -8,13 +8,13 @@ module.exports = {
         let firstLineText;
         browser.click('div:nth-child(1) div:nth-child(2) input');
         browser.clearValue('div:nth-child(1) div:nth-child(2) input');
-        browser.setValue('div:nth-child(1) div:nth-child(2) input', '妈的什么鬼');
+        browser.setValue('div:nth-child(1) div:nth-child(2) input', 'white house');
         browser.waitForElementVisible('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 8000);
         browser.getText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', function(result){
             firstLineText = result.value;
-            console.log('++++++++++++++++++++', firstLineText);
-        })
-        browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', '1216');
+            console.log('++++++++++++++', firstLineText);
+        });
+        browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 'white house');
         // browser.keys(browser.Keys.ENTER);
         // browser.pause(5000);
     },
