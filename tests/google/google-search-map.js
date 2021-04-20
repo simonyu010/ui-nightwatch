@@ -5,41 +5,27 @@ module.exports = {
     },
 
     'Test Suggestion list fuction': function (browser) {
-        let firstLineText;
         browser.click('div:nth-child(1) div:nth-child(2) input');
-        browser.clearValue('div:nth-child(1) div:nth-child(2) input');
-        browser.setValue('div:nth-child(1) div:nth-child(2) input', 'white house');
+        browser.setValue('div:nth-child(1) div:nth-child(2) input', 'White House Address');
         browser.waitForElementVisible('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 8000);
-        browser.getText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', function(result){
-            firstLineText = result.value;
-            console.log('++++++++++++++', firstLineText);
-        });
-        browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 'white house');
-        // browser.keys(browser.Keys.ENTER);
-        // browser.pause(5000);
-    },
-
-    'Test Map Fuction': function (browser) {
-        browser.clearValue('div:nth-child(1) div:nth-child(2) input');
-        browser.setValue('div:nth-child(1) div:nth-child(2) input', ['1216 cavalier dr', browser.Keys.ENTER]);
-        browser.waitForElementVisible('[id="lu_map"]', 15000);
+        browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 'White House');
+        browser.pause(1000);
     },
 
     'Test Map Address': function (browser) {
-        browser.assert.containsText('[class="desktop-title-content"]', '1216');
+        browser.keys(browser.Keys.ENTER);
+        browser.waitForElementNotVisible('div:nth-child(1) div:nth-child(2) input', 15000);
+        browser.assert.containsText(['id="search"]>div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2)', '1600 pennsylvania');
     },
 
-    'Test Navigate Button': function(browser){
-        //add assertion before click
-        browser.click('[class="e5KSyc WGYX8 ckX4df"]');
-        //find a better element
-        browser.waitForElementNotPresent('[class="e5KSyc WGYX8 ckX4df"]',15000);
+    'Test Navigate Button': function (browser) {
+        browser.waitForElementVisible('[style="cursor:pointer"] div', 1500);
+        browser.click('[style="cursor:pointer"] div');
+        browser.waitForElementNotPresent('[style="cursor:pointer"] div', 15000);
     },
 
-    'Test Navigate Page': function(browser){
-        //pick a different element rather than a dynamic element
-        // browser.waitForElementVisible('[id="section-directions-trip-title-0"] span',15000);
-        // browser.assert.containsText('[id="section-directions-trip-title-0"] span','Cavalier Dr');
+    'Test Navigate Page': function (browser) {
+        browser.waitForElementVisible('[id="sb_ifc51"] input',15000);
+        browser.assert.containsText('[id="sb_ifc51"] input','Pennsylvania Avenue');
     }
-
 }
