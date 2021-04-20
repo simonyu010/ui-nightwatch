@@ -7,15 +7,13 @@ module.exports = {
     'Test Suggestion list fuction': function (browser) {
         browser.click('div:nth-child(1) div:nth-child(2) input');
         browser.setValue('div:nth-child(1) div:nth-child(2) input', 'White House Address');
-        browser.waitForElementVisible('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 8000);
-        browser.assert.containsText('li:nth-child(1) div:nth-child(1) div:nth-child(1) span', 'White House');
+        browser.waitForElementVisible('li:nth-child(1)>div', 8000);
         browser.pause(1000);
     },
 
     'Test Map Address': function (browser) {
         browser.keys(browser.Keys.ENTER);
-        browser.waitForElementNotVisible('div:nth-child(1) div:nth-child(2) input', 15000);
-        browser.assert.containsText(['id="search"]>div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2)', '1600 pennsylvania');
+        browser.verify.containsText('[class^="match"] div div:nth-child(1)', '1600 Pennsylvania');
     },
 
     'Test Navigate Button': function (browser) {
@@ -25,7 +23,13 @@ module.exports = {
     },
 
     'Test Navigate Page': function (browser) {
+        let address;
         browser.waitForElementVisible('[id="sb_ifc51"] input',15000);
-        browser.assert.containsText('[id="sb_ifc51"] input','Pennsylvania Avenue');
+        browser.getText('[id="sb_ifc51"] input', function(result){
+            address=result.value;
+            console.log('++++++++++++++++++++++++++++++++++++++',address);
+        });
+        browser.verify.containsText('[id="sb_ifc51"] input','Pennsylvania');
+        
     }
 }
