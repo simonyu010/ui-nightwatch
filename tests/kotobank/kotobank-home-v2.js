@@ -11,7 +11,6 @@ module.exports = {
         const kotobank = browser.page.kotobankHomePage()
         kotobank.waitForElementVisible('@searchBar', 15000);
         kotobank.getAttribute('@searchBar', 'type', function(result){
-            console.log(result);
             kotobank.verify.equal(result.value, 'text');
         })
         kotobank.setValue('@searchBar', 'ポケモン');
