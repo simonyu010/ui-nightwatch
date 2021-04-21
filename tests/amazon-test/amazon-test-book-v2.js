@@ -1,6 +1,6 @@
 module.exports = {
     'Navigate to Amazon homepage': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.navigate();
         amazon.waitForElementVisible('@searchBar', 15000);
     },
