@@ -1,6 +1,7 @@
 module.exports = {
     url: 'https://www.amazon.com/',
     elements: {
-        mainAppFrame: { selector: '[id="gw-desktop-herotator"]' }
+        addToCart: { selector: '[id="add-to-cart-button"]' }
     }
+
 }
