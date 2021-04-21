@@ -1,19 +1,19 @@
 module.exports = {
     'Navigate to Amazon homepage': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.navigate();
         amazon.waitForElementVisible('@searchBar', 15000);
     },
 
     'Search for book by ISBN-10': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.setValue('@searchBar', '0745656064');
         browser.keys(browser.Keys.ENTER);
         amazon.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
     'Search for book by ISBN-13': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.click('@searchBar');
         amazon.clearValue('@searchBar');
         amazon.setValue('@searchBar', '978-0745656069');
@@ -22,7 +22,7 @@ module.exports = {
     },
 
     'Add to cart function': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.click('@bookName');
         amazon.click('@addToCart');
         amazon.waitForElementVisible('@viewCart', 15000);
@@ -30,7 +30,7 @@ module.exports = {
     },
 
     'Remove from cart function': function (browser) {
-        const amazon = browser.page.amazonHomePage();
+        const amazon = browser.page.amazon();
         amazon.waitForElementVisible('@DeleteFromCart', 15000);
         amazon.click('@DeleteFromCart');
 
