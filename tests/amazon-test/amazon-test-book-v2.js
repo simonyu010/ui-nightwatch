@@ -7,23 +7,23 @@ module.exports = {
 
     'Search for book by ISBN-10': function (browser) {
         const amazon = browser.page.amazonHomePage();
-        amazon.setValue('@searchBar', '9780679805274');
+        amazon.setValue('@searchBar', '0745656064');
         browser.keys(browser.Keys.ENTER);
-        amazon.verify.containsText('@bookName10', 'Oh');
+        amazon.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
     'Search for book by ISBN-13': function (browser) {
         const amazon = browser.page.amazonHomePage();
         amazon.click('@searchBar');
         amazon.clearValue('@searchBar');
-        amazon.setValue('@searchBar', '978-0679805274');
+        amazon.setValue('@searchBar', '978-0745656069');
         browser.keys(browser.Keys.ENTER);
-        amazon.verify.containsText('@bookName13', 'Oh');
+        amazon.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
     'Add to cart function': function (browser) {
         const amazon = browser.page.amazonHomePage();
-        amazon.click('@bookName13');
+        amazon.click('@bookName');
         amazon.click('@addToCart');
         amazon.waitForElementVisible('@viewCart', 15000);
         amazon.click('@viewCart');

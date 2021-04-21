@@ -5,21 +5,21 @@ module.exports = {
     },
 
     'Search for book by ISBN-10': function (browser) {
-        browser.setValue('[id="twotabsearchtextbox"]', '9780679805274');
+        browser.setValue('[id="twotabsearchtextbox"]', '0745656064');
         browser.keys(browser.Keys.ENTER);
-        browser.verify.containsText('[cel_widget_id="MAIN-SEARCH_RESULTS-1"] div:nth-child(3) h2 span', 'Oh');
+        browser.verify.containsText('[class$="base a-text-normal"]', 'Digital Media Ethics');
     },
 
     'Search for book by ISBN-13': function (browser) {
         browser.click('[id="twotabsearchtextbox"]');
         browser.clearValue('[id="twotabsearchtextbox"]');
-        browser.setValue('[id="twotabsearchtextbox"]', '978-0679805274');
+        browser.setValue('[id="twotabsearchtextbox"]', '978-0745656069');
         browser.keys(browser.Keys.ENTER);
-        browser.verify.containsText('[cel_widget_id="MAIN-SEARCH_RESULTS-2"] div:nth-child(3) h2 span', 'Oh');
+        browser.verify.containsText('[class$="base a-text-normal"]', 'Digital Media Ethics');
     },
 
     'Add to cart function': function (browser) {
-        browser.click('[cel_widget_id="MAIN-SEARCH_RESULTS-2"] div:nth-child(3) h2 span');
+        browser.click('[class$="base a-text-normal"]');
         browser.click('[id="add-to-cart-button"]');
         browser.waitForElementVisible('[id="hlb-view-cart-announce"]',15000);
         browser.click('[id="hlb-view-cart-announce"]');
