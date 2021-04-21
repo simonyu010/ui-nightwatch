@@ -1,33 +1,33 @@
 module.exports = {
-    'Navigate to Amazon homepage': function (browser) {
+    'Verify user can navigate to Amazon homepage by URL': function (browser) {
         const amazonHome = browser.page.amazonHomePage();
 
         amazonHome.navigate();
         amazonHome.waitForElementVisible('@mainAppFrame', 15000);
     },
 
-    'Search for book by ISBN-10': function (browser) {
-        const amazonHeader = browser.page.amazonCommonPage();
-        const afterSearch = browser.page.amazonAfterSearchPage();
+    'Verify search result by inputting ISBN-10': function (browser) {
+        const amazonCommon = browser.page.amazonCommonPage();
+        const amazonAfter = browser.page.amazonAfterSearchPage();
 
-        amazonHeader.verify.visible('@searchBar');
-        amazonHeader.setValue('@searchBar', '0745656064');
+        amazonCommon.verify.visible('@searchBar');
+        amazonCommon.setValue('@searchBar', '0745656064');
         browser.keys(browser.Keys.ENTER);
-        afterSearch.verify.containsText('@bookName', 'Digital Media Ethics');
+        amazonAfter.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
-    'Search for book by ISBN-13': function (browser) {
-        const amazonHeader = browser.page.amazonCommonPage();
-        const amazonResultPage = browser.page.amazonAfterSearchPage();
+    'Validate search fuctionalities with ISBN-13': function (browser) {
+        const amazonCommon = browser.page.amazonCommonPage();
+        const amazonAfter = browser.page.amazonAfterSearchPage();
 
-        amazonHeader.waitForElementVisible('@searchBar');
-        amazonHeader.clearValue('@searchBar');
-        amazonHeader.setValue('@searchBar', '978-0745656069');
+        amazonCommon.waitForElementVisible('@searchBar');
+        amazonCommon.clearValue('@searchBar');
+        amazonCommon.setValue('@searchBar', '978-0745656069');
         browser.keys(browser.Keys.ENTER);
-        amazonResultPage.verify.containsText('@bookName', 'Digital Media Ethics');
+        amazonAfter.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
-    'Add to cart function': function (browser) {
+    'Validate add to cart workflow': function (browser) {
         const amazonAfter = browser.page.amazonAfterSearchPage();
         const amazonProduct = browser.page.amazonProductPage();
         const amazonSummary = browser.page.amazonSummaryPage();
@@ -40,10 +40,10 @@ module.exports = {
         amazonSummary.click('@viewCart');
     },
 
-    // 'Remove from cart function': function (browser) {
-    //     const amazon = browser.page.amazon();
-    //     amazon.waitForElementVisible('@DeleteFromCart', 15000);
-    //     amazon.click('@DeleteFromCart');
+    'Validate remove from cart workflow': function (browser) {
+        const amazonCart = browser.page.amazonCartPage();
 
-    // }
+        amazonCart.waitForElementVisible('@deleteFromCart', 15000);
+        amazonCart.click('@deleteFromCart');
+    }
 }

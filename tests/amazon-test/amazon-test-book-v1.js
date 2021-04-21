@@ -21,12 +21,12 @@ module.exports = {
     'Add to cart function': function (browser) {
         browser.click('[class$="base a-text-normal"]');
         browser.click('[id="add-to-cart-button"]');
-        browser.waitForElementVisible('[id="hlb-view-cart-announce"]',15000);
+        browser.waitForElementVisible('[id="hlb-view-cart-announce"]', 15000);
         browser.click('[id="hlb-view-cart-announce"]');
     },
 
     'Remove from cart function': function (browser) {
-        browser.waitForElementVisible('[value="Delete"]',15000);
+        browser.waitForElementVisible('[value="Delete"]', 15000);
         browser.click('[value="Delete"]');
     }
 }
