@@ -27,13 +27,18 @@ module.exports = {
         amazonResultPage.verify.containsText('@bookName', 'Digital Media Ethics');
     },
 
-    // 'Add to cart function': function (browser) {
-    //     const amazon = browser.page.amazon();
-    //     amazon.click('@bookName');
-    //     amazon.click('@addToCart');
-    //     amazon.waitForElementVisible('@viewCart', 15000);
-    //     amazon.click('@viewCart');
-    // },
+    'Add to cart function': function (browser) {
+        const amazonAfter = browser.page.amazonAfterSearchPage();
+        const amazonProduct = browser.page.amazonProductPage();
+        const amazonSummary = browser.page.amazonSummaryPage();
+
+        amazonAfter.waitForElementVisible('@bookName', 15000);
+        amazonAfter.click('@bookName');
+        amazonProduct.waitForElementVisible('@addToCart', 15000);
+        amazonProduct.click('@addToCart');
+        amazonSummary.waitForElementVisible('@viewCart', 15000);
+        amazonSummary.click('@viewCart');
+    },
 
     // 'Remove from cart function': function (browser) {
     //     const amazon = browser.page.amazon();
