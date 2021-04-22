@@ -1,12 +1,12 @@
 module.exports = {
-    'Navigate to Google homepage': function (browser) {
+    'Verify if user can navigate to google': function (browser) {
         const google = browser.page.googleHomePage();
 
         google.navigate();
         google.waitForElementVisible('@searchBar', 15000);
     },
 
-    'Test Suggestion list fuction': function (browser) {
+    'Validate search bar functionalities on suggested list': function (browser) {
         const google = browser.page.googleHomePage();
 
         google.verify.visible('@searchBar');
@@ -17,23 +17,18 @@ module.exports = {
         google.verify.containsText('@searchResults', '1600 Pennsylvania');
     },
 
-    'Test Navigate Button': function (browser) {
+    'Validate the functionality of Directions button': function (browser) {
         const google = browser.page.googleHomePage();
 
-        google.waitForElementVisible('@navigateButton', 15000);
-        google.click('@navigateButton');
-        google.waitForElementNotPresent('@navigateButton', 15000);
+        google.waitForElementVisible('@directionsButton', 15000);
+        google.click('@directionsButton');
+        google.waitForElementNotPresent('@directionsButton', 15000);
     },
     
-    'Test Navigate Page': function (browser) {
-        let address;
+    'Verify destination field includes desired address': function (browser) {
         const google = browser.page.googleHomePage();
 
         google.waitForElementPresent('@destinationInput', 15000);
-        browser.getValue('[id="directions-searchbox-1"] input', function(result){
-            address=result.value;
-            console.log('++++++++++++++++++++++++++++++++++++++', address);
-        });
-        google.verify.valueContains('@destinationInput', '1600');
+        google.verify.valueContains('@destinationInput', 'Pennsylvania');
     }
 }
