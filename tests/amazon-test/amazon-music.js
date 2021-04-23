@@ -8,7 +8,7 @@ module.exports = {
         amazonHome.waitForElementVisible('@zipInput', 15000);
         amazonHome.setValue('@zipInput', '53186');
         amazonHome.click('@zipSubmitButton');
-        amazonHome.waitForElementVisible('@finishButton', 15000);
+        // amazonHome.waitForElementVisible('@finishButton', 15000);
         // amazonHome.click('@finishButton');
         amazonHome.waitForElementVisible('@mainAppFrame', 15000);
     },
