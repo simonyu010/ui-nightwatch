@@ -8,30 +8,46 @@ module.exports = {
         amazonHome.waitForElementVisible('@zipInput', 15000);
         amazonHome.setValue('@zipInput', '53186');
         amazonHome.click('@zipSubmitButton');
-        amazonHome.waitForElementVisible('@finishButton', 15000);
+
+        let nonUsBoolean;
+
+        amazonHome.isVisible('@finishButton', function(result) {
+            nonUsBoolean = result.value;
+            console.log('++++++++++++++++++++++++', nonUsBoolean);
+        });
+
+        console.log('*****************', nonUsBoolean);
         amazonHome.click('@finishButton');
-        amazonHome.waitForElementVisible('@mainAppFrame', 15000);
-    },
-
-    'Verify user can go to music library by Nav list': function (browser) {
-        const amazonHome = browser.page.amazonHomePage();
         
-        // amazonHome.waitForElementVisible('@robotMopImage', 15000);
-        // amazonHome.waitForElementVisible('@accountButton', 15000);
-        browser.pause(3000);
-        amazonHome.moveToElement('@accountButton', 1, 1);
-        amazonHome.waitForElementVisible('@musicLibrary', 15000);
-        amazonHome.click('@musicLibrary');
+        // if( amazonHome.verify.visible('@finishButton') == "true") {
+        
+        // } else {
+        //     amazonHome.waitForElementVisible('@doneButton');
+        //     amazonHome.click('@doneButton');
+        // }
+        // amazonHome.waitForElementVisible('@mainAppFrame', 15000);
+        // browser.pause(3000);
     },
 
-    'Verify user can search by artist name': function (browser) {
-        const amazonMusic = browser.page.amazonMusicPage();
+    // 'Verify user can go to music library by Nav list': function (browser) {
+    //     const amazonHome = browser.page.amazonHomePage();
+        
+    //     // amazonHome.waitForElementVisible('@robotMopImage', 15000);
+    //     // amazonHome.waitForElementVisible('@accountButton', 15000);
+    //     browser.pause(3000);
+    //     amazonHome.moveToElement('@accountButton', 1, 1);
+    //     amazonHome.waitForElementVisible('@musicLibrary', 15000);
+    //     amazonHome.click('@musicLibrary');
+    // },
 
-        amazonMusic.waitForElementVisible('@navBarInput', 15000);
-        amazonMusic.click('@navBarInput');
-        amazonMusic.setValue('@navBarInput', 'Taylor Swift');
-        browser.keys(browser.Keys.ENTER);
-        amazonMusic.waitForElementVisible('@searchResults', 15000);
-        amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
-    }
+    // 'Verify user can search by artist name': function (browser) {
+    //     const amazonMusic = browser.page.amazonMusicPage();
+
+    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
+    //     amazonMusic.click('@navBarInput');
+    //     amazonMusic.setValue('@navBarInput', 'Taylor Swift');
+    //     browser.keys(browser.Keys.ENTER);
+    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
+    //     amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
+    // }
 }
