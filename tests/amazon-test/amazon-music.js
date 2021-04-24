@@ -9,7 +9,7 @@ module.exports = {
         amazonHome.setValue('@zipInput', '53186');
         amazonHome.click('@zipSubmitButton');
 
-        browser.element('css selector', '[id$="Placeholder"]', function(result){
+        browser.element('css selector', '[class=“a-size-small,a-text,a-color-tertiary,a-spacing-top-base”]', function(result){
             if (result.value && result.value.ELEMENT) {
                 amazonHome.waitForElementVisible('@finishButton');
                 amazonHome.click('@finishButton');
@@ -27,7 +27,7 @@ module.exports = {
 
         // amazonHome.waitForElementVisible('@robotMopImage', 15000);
         // amazonHome.waitForElementVisible('@accountButton', 15000);
-        browser.expect.element("body").text.to.contain('Success').before(60*1000);
+        amazonHome.expect.element("@accountButton").text.to.contain('Hello, Sign in').before(7*1000);
 
         amazonHome.moveToElement('@accountButton', 1, 1);
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
