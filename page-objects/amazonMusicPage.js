@@ -1,7 +1,7 @@
 module.exports = {
     elements: {
         navBarInput: { selector: '[id="navbarSearchInput"]' },
-        newBarInput: { selector: '[class="_8Lmlu_O0b8c_hn2EmsVOP"' },
-        searchResults: { selector: '[id="Web.TemplatesInterface.v1_0.Touch.SearchTemplateInterface.SearchTemplate_1"] music-container:nth-child(2) div' }
+        searchResults: { selector: '[id^="Web.TemplatesInterface"] music-container:nth-child(2) div' },
+        amazonMusicLogo: { selector: '[id="navbarMusicLogo"] img:nth-child(2)' }
     }
 }
