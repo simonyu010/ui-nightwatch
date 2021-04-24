@@ -9,8 +9,9 @@ module.exports = {
         amazonHome.setValue('@zipInput', '53186');
         amazonHome.click('@zipSubmitButton');
 
-        browser.element('css selector', '[class="a-popover-footer"] span:nth-child(1) input', function(result){
+        browser.element('css selector', '[id$="Placeholder"]', function(result){
             if (result.value && result.value.ELEMENT) {
+                amazonHome.waitForElementVisible('@finishButton');
                 amazonHome.click('@finishButton');
             } else {
                 amazonHome.waitForElementVisible('@doneButton');
@@ -21,25 +22,26 @@ module.exports = {
         amazonHome.waitForElementVisible('@mainAppFrame', 15000);
     },
 
-    // 'Verify user can go to music library by Nav list': function (browser) {
-    //     const amazonHome = browser.page.amazonHomePage();
+    'Verify user can go to music library by Nav list': function (browser) {
+        const amazonHome = browser.page.amazonHomePage();
 
-    //     // amazonHome.waitForElementVisible('@robotMopImage', 15000);
-    //     // amazonHome.waitForElementVisible('@accountButton', 15000);
-    //     browser.pause(3000);
-    //     amazonHome.moveToElement('@accountButton', 1, 1);
-    //     amazonHome.waitForElementVisible('@musicLibrary', 15000);
-    //     amazonHome.click('@musicLibrary');
-    // },
+        // amazonHome.waitForElementVisible('@robotMopImage', 15000);
+        // amazonHome.waitForElementVisible('@accountButton', 15000);
+        browser.expect.element("body").text.to.contain('Success').before(60*1000);
 
-    // 'Verify user can search by artist name': function (browser) {
-    //     const amazonMusic = browser.page.amazonMusicPage();
+        amazonHome.moveToElement('@accountButton', 1, 1);
+        amazonHome.waitForElementVisible('@musicLibrary', 15000);
+        amazonHome.click('@musicLibrary');
+    },
 
-    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
-    //     amazonMusic.click('@navBarInput');
-    //     amazonMusic.setValue('@navBarInput', 'Taylor Swift');
-    //     browser.keys(browser.Keys.ENTER);
-    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
-    //     amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
-    // }
+    'Verify user can search by artist name': function (browser) {
+        const amazonMusic = browser.page.amazonMusicPage();
+
+        amazonMusic.waitForElementVisible('@navBarInput', 15000);
+        amazonMusic.click('@navBarInput');
+        amazonMusic.setValue('@navBarInput', 'Taylor Swift');
+        browser.keys(browser.Keys.ENTER);
+        amazonMusic.waitForElementVisible('@searchResults', 15000);
+        amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
+    }
 }
