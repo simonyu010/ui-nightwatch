@@ -9,29 +9,21 @@ module.exports = {
         amazonHome.setValue('@zipInput', '53186');
         amazonHome.click('@zipSubmitButton');
 
-        let nonUsBoolean;
-
-        amazonHome.isVisible('@finishButton', function(result) {
-            nonUsBoolean = result.value;
-            console.log('++++++++++++++++++++++++', nonUsBoolean);
+        browser.element('css selector', '[class="a-popover-footer"] span:nth-child(1) input', function(result){
+            if (result.value && result.value.ELEMENT) {
+                amazonHome.click('@finishButton');
+            } else {
+                amazonHome.waitForElementVisible('@doneButton');
+                amazonHome.click('@doneButton');
+            }
         });
 
-        console.log('*****************', nonUsBoolean);
-        amazonHome.click('@finishButton');
-        
-        // if( amazonHome.verify.visible('@finishButton') == "true") {
-        
-        // } else {
-        //     amazonHome.waitForElementVisible('@doneButton');
-        //     amazonHome.click('@doneButton');
-        // }
-        // amazonHome.waitForElementVisible('@mainAppFrame', 15000);
-        // browser.pause(3000);
+        amazonHome.waitForElementVisible('@mainAppFrame', 15000);
     },
 
     // 'Verify user can go to music library by Nav list': function (browser) {
     //     const amazonHome = browser.page.amazonHomePage();
-        
+
     //     // amazonHome.waitForElementVisible('@robotMopImage', 15000);
     //     // amazonHome.waitForElementVisible('@accountButton', 15000);
     //     browser.pause(3000);
