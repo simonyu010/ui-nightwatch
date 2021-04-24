@@ -32,6 +32,6 @@ module.exports = {
         amazonMusic.setValue('@navBarInput', 'Taylor Swift');
         browser.keys(browser.Keys.ENTER);
         amazonMusic.waitForElementVisible('@searchResults', 15000);
-        amazonMusic.verify.valueContains('@searchResults', 'Taylor Swift')
+        amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
     }
 }
