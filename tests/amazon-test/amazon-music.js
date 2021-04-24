@@ -12,7 +12,7 @@ module.exports = {
 
         // amazonHome.click('@zipSubmitButton');
 
-        browser.element('css selector', '[id$="SubTextAisEgress"]', function(result){
+        browser.element('css selector', '[class="a-size-small,a-text,a-color-tertiary,a-spacing-top-base"]', function(result){
             if (result.value && result.value.ELEMENT) {
                 amazonHome.waitForElementVisible('@finishButton');
                 amazonHome.click('@finishButton');
