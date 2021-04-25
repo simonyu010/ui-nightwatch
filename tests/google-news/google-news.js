@@ -13,12 +13,13 @@ module.exports = {
         browser.verify.visible('[jsdata="deferred-i3"] div div');
 
         'Verify google news Science button'
-        browser.waitForElementVisible('header c-wiz div:nth-child(10)');
-        browser.click('header c-wiz div:nth-child(10)');
-        // browser.verify.visble('[class="OJMBqe"]');
+        browser.waitForElementVisible('header c-wiz div:nth-child(5) div:nth-child(11)');
+        browser.click('header c-wiz div:nth-child(5) div:nth-child(11)');
+        browser.pause(5000);
+        // browser.verify.containsText('[jsdata="deferred-c825"] c-wiz h2', 'Science');
 
         'Verify google new search result'
-        browser.waitForElementVisible('[jsaction^="input"]',15000);
+        browser.waitForElementVisible('[jsaction^="input"]', 15000);
         browser.setValue('[jsaction^="input"]', 'nasa shares photos of lunar gateway space station to launch for moon');
         browser.keys(browser.Keys.ENTER);
         browser.verify.containsText('[data-n-et="406"] div div div h3', 'shares photos');
