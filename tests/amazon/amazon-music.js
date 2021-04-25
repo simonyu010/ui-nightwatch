@@ -30,7 +30,7 @@ module.exports = {
         browser.pause(1000); //mandatory pause to wait for app to consistently land on English
         amazonHome.moveToElement('@accountButton', 1, 1);
         amazonHome.moveToElement('@accountButton', 1, 1); //make sure that it tiggers the list
-        browser.pause(4500); //mandatory pause to wait for account list to expand
+        browser.pause(6000); //mandatory pause to wait for account list to expand
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
         amazonMusic.waitForElementVisible('@navBarInput', 15000);
