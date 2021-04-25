@@ -36,7 +36,7 @@ module.exports = {
         amazonHome.moveToElement('@accountButton', 1, 1);
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
-        amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
+        // amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
     },
 
     'Verify user can search by artist name': function (browser) {
