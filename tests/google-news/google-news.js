@@ -18,10 +18,13 @@ module.exports = {
         browser.element('css selector', 'header c-wiz div:nth-child(5) div:nth-child(11)', function(result){
             if (!result.value && !result.value.ELEMENT) {
                 browser.click('[aria-label="Main menu"] svg');
+                browser.waitForElementVisible('header c-wiz div:nth-child(5) div:nth-child(11)');
+                browser.click('header c-wiz div:nth-child(5) div:nth-child(11)');
+            } else {
+                browser.waitForElementVisible('header c-wiz div:nth-child(5) div:nth-child(11)');
+                browser.click('header c-wiz div:nth-child(5) div:nth-child(11)');
             }
         });
-        browser.waitForElementVisible('header c-wiz div:nth-child(5) div:nth-child(11)');
-        browser.click('header c-wiz div:nth-child(5) div:nth-child(11)');
         browser.waitForElementVisible('c-wiz[data-node-index="1;0"] div:nth-child(2) h2');
         browser.verify.containsText('c-wiz[data-node-index="1;0"] div:nth-child(2) h2', 'Science');
     },
