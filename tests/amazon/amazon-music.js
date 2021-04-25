@@ -32,33 +32,34 @@ module.exports = {
         // amazonHome.waitForElementVisible('@accountButton', 15000);
         // amazonHome.expect.element("@accountButton").text.to.contain('Hello, Sign in').before(7*1000);
 
-        browser.pause(1000);
+        browser.waitForElementVisible('[id="nav-xshop"] a:nth-child(10)', 15000);
         amazonHome.moveToElement('@accountButton', 1, 1);
+        // browser.pause(3000);
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
         // amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
     },
 
-    'Verify user can search by artist name': function (browser) {
-        const amazonMusic = browser.page.amazonMusicPage();
+    // 'Verify user can search by artist name': function (browser) {
+    //     const amazonMusic = browser.page.amazonMusicPage();
 
-        amazonMusic.waitForElementVisible('@navBarInput', 15000);
-        amazonMusic.click('@navBarInput');
-        amazonMusic.setValue('@navBarInput', 'Taylor Swift');
-        browser.keys(browser.Keys.ENTER);
-        amazonMusic.waitForElementVisible('@searchResults', 15000);
-        amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
-    },
+    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
+    //     amazonMusic.click('@navBarInput');
+    //     amazonMusic.setValue('@navBarInput', 'Taylor Swift');
+    //     browser.keys(browser.Keys.ENTER);
+    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
+    //     amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
+    // },
 
-    'Verify user can search by song name': function (browser) {
-        const amazonMusic = browser.page.amazonMusicPage();
+    // 'Verify user can search by song name': function (browser) {
+    //     const amazonMusic = browser.page.amazonMusicPage();
 
-        amazonMusic.waitForElementVisible('@navBarInput', 15000);
-        amazonMusic.click('@navBarInput');
-        amazonMusic.clearValue('@navBarInput');
-        amazonMusic.setValue('@navBarInput', 'fearless');
-        browser.keys(browser.Keys.ENTER);
-        amazonMusic.waitForElementVisible('@searchResults', 15000);
-        amazonMusic.verify.containsText('@searchResults', 'Fearless');
-    }
+    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
+    //     amazonMusic.click('@navBarInput');
+    //     amazonMusic.clearValue('@navBarInput');
+    //     amazonMusic.setValue('@navBarInput', 'fearless');
+    //     browser.keys(browser.Keys.ENTER);
+    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
+    //     amazonMusic.verify.containsText('@searchResults', 'Fearless');
+    // }
 }
