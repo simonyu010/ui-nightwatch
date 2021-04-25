@@ -34,7 +34,7 @@ module.exports = {
 
         browser.waitForElementVisible('[id="nav-xshop"] a:nth-child(10)', 15000);
         amazonHome.moveToElement('@accountButton', 1, 1);
-        // browser.pause(3000);
+        browser.pause(5000);
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
         // amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
