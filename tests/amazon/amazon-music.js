@@ -10,7 +10,7 @@ module.exports = {
         // amazonHome.moveToElement('@zipSubmitButton', 2, 2);
         // browser.doubleClick();
         amazonHome.click('@zipSubmitButton');
-        browser.pause(1000);
+        browser.pause(3000);
 
         browser.element('css selector', '[class="a-size-small,a-text,a-color-tertiary,a-spacing-top-base"]', function(result){
             if (result.value && result.value.ELEMENT) {
