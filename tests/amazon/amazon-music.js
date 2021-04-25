@@ -32,7 +32,7 @@ module.exports = {
         browser.pause(3500); //mandatory pause to wait for account list to expand
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
-        amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
+        amazonMusic.waitForElementVisible('@navBarInput', 15000);
     },
 
     'Verify user can search by artist name': function (browser) {
