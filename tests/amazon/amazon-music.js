@@ -32,7 +32,8 @@ module.exports = {
         // amazonHome.waitForElementVisible('@accountButton', 15000);
         // amazonHome.expect.element("@accountButton").text.to.contain('Hello, Sign in').before(7*1000);
 
-        browser.waitForElementVisible('[id="nav-xshop"] a:nth-child(10)', 15000);
+        // browser.waitForElementVisible('[id="nav-xshop"] a:nth-child(10)', 15000);
+        browser.pause(6000);
         amazonHome.moveToElement('@accountButton', 1, 1);
         browser.pause(5000);
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
