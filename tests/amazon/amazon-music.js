@@ -7,10 +7,8 @@ module.exports = {
         amazonHome.click('@locationButton');
         amazonHome.waitForElementVisible('@zipInput', 15000);
         amazonHome.setValue('@zipInput', '53186');
-        // amazonHome.moveToElement('@zipSubmitButton', 2, 2);
-        // browser.doubleClick();
         amazonHome.click('@zipSubmitButton');
-        browser.pause(3000);
+        browser.pause(1000); // mandatory pause to allow one second threshhold for US confirmation prompt
 
         browser.element('css selector', '[class="a-size-small,a-text,a-color-tertiary,a-spacing-top-base"]', function(result){
             if (result.value && result.value.ELEMENT) {
@@ -29,38 +27,34 @@ module.exports = {
         const amazonHome = browser.page.amazonHomePage();
         const amazonMusic = browser.page.amazonMusicPage();
 
-        // amazonHome.waitForElementVisible('@accountButton', 15000);
-        // amazonHome.expect.element("@accountButton").text.to.contain('Hello, Sign in').before(7*1000);
-
-        browser.waitForElementPresent('[id="nav-xshop"] a:nth-child(10)', 15000);
-        // browser.pause(6000);
+        browser.pause(3000); //mandatory pause to wait for app to consistently land on English
         amazonHome.moveToElement('@accountButton', 1, 1);
-        browser.pause(5000);
+        browser.pause(3000); //mandatory pause to wait for account list to expand
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
-        // amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
+        amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
     },
 
-    // 'Verify user can search by artist name': function (browser) {
-    //     const amazonMusic = browser.page.amazonMusicPage();
+    'Verify user can search by artist name': function (browser) {
+        const amazonMusic = browser.page.amazonMusicPage();
 
-    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
-    //     amazonMusic.click('@navBarInput');
-    //     amazonMusic.setValue('@navBarInput', 'Taylor Swift');
-    //     browser.keys(browser.Keys.ENTER);
-    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
-    //     amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
-    // },
+        amazonMusic.verify.visible('@navBarInput');
+        amazonMusic.click('@navBarInput');
+        amazonMusic.setValue('@navBarInput', 'Taylor Swift');
+        browser.keys(browser.Keys.ENTER);
+        amazonMusic.waitForElementVisible('@searchResults', 15000);
+        amazonMusic.verify.containsText('@searchResults', 'Taylor Swift')
+    },
 
-    // 'Verify user can search by song name': function (browser) {
-    //     const amazonMusic = browser.page.amazonMusicPage();
+    'Verify user can search by song name': function (browser) {
+        const amazonMusic = browser.page.amazonMusicPage();
 
-    //     amazonMusic.waitForElementVisible('@navBarInput', 15000);
-    //     amazonMusic.click('@navBarInput');
-    //     amazonMusic.clearValue('@navBarInput');
-    //     amazonMusic.setValue('@navBarInput', 'fearless');
-    //     browser.keys(browser.Keys.ENTER);
-    //     amazonMusic.waitForElementVisible('@searchResults', 15000);
-    //     amazonMusic.verify.containsText('@searchResults', 'Fearless');
-    // }
+        amazonMusic.verify.visible('@navBarInput');
+        amazonMusic.click('@navBarInput');
+        amazonMusic.clearValue('@navBarInput');
+        amazonMusic.setValue('@navBarInput', 'fearless');
+        browser.keys(browser.Keys.ENTER);
+        amazonMusic.waitForElementVisible('@searchResults', 15000);
+        amazonMusic.verify.containsText('@searchResults', 'Fearless');
+    }
 }
