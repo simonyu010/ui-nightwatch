@@ -27,9 +27,9 @@ module.exports = {
         const amazonHome = browser.page.amazonHomePage();
         const amazonMusic = browser.page.amazonMusicPage();
 
-        browser.pause(3000); //mandatory pause to wait for app to consistently land on English
+        browser.pause(1000); //mandatory pause to wait for app to consistently land on English
         amazonHome.moveToElement('@accountButton', 1, 1);
-        browser.pause(3000); //mandatory pause to wait for account list to expand
+        browser.pause(3500); //mandatory pause to wait for account list to expand
         amazonHome.waitForElementVisible('@musicLibrary', 15000);
         amazonHome.click('@musicLibrary');
         amazonMusic.waitForElementVisible('@amazonMusicLogo', 15000);
