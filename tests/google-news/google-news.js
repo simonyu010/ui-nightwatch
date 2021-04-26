@@ -14,9 +14,8 @@ module.exports = {
         googleHome.verify.visible('@searchBar');
         googleHome.setValue('@searchBar', 'google news');
         browser.keys(browser.Keys.ENTER);
-        googleResult.waitForElementVisible('@searchResult', 15000);
+        googleNews.waitForElementVisible('@forecastElement');
         googleResult.click('@searchResult');
-        googleNews.verify.visible('@forecastElement');
     },
 
     'Verify google news search result': function (browser) {
