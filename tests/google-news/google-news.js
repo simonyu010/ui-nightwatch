@@ -20,9 +20,8 @@ module.exports = {
 
     'Verify google news search result': function (browser) {
         const googleNewsResult = browser.page.googleNewsResultPage();
-        const googleNews = browser.page.googleNewsPage();
-
-        googleNews.waitForElementVisible('@forecastElement');
+        
+        googleNewsResult.waitForElementVisible('@searchBar');
         googleNewsResult.setValue('@searchBar', 'nasa shares photos of lunar gateway space station to launch for moon');
         browser.keys(browser.Keys.ENTER);
         googleNewsResult.verify.containsText('@searchResult', 'shares photos');
