@@ -1,10 +1,11 @@
 module.exports = {
     url: 'https://www.google.com/',
     elements: {
-        searchBar: { selector: 'div:nth-child(1) div:nth-child(2) input' },
+        searchBar: { selector: '[maxlength="2048"]' },
         firstSuggestion: { selector: 'li:nth-child(1)>div' },
         searchResults: { selector: '[id="search"]' },
         directionsButton: { selector: '[style="cursor:pointer"] > div:nth-child(1)' },
         destinationInput: { selector: '[id="directions-searchbox-1"] input' },
+        logoPicture: { selector: '[id="hplogo"]' },
     }
 }
