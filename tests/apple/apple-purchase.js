@@ -31,7 +31,25 @@ module.exports = {
     'Pick a 13 inch Macbook Pro': function (browser) {
         const macBuyPage = browser.page.appleMacBuyPage();
 
-        macBuyPage.waitForElementVisible('@macBuyPageIndicator', 15000);
-        macBuyPage.verify.containsText('@macBuyPageIndicator', 'Choose your new MacBook Pro.');
+        browser.element('css selector', '[class$="maintitlebox"] h1', function (result) {
+            if (result.value && result.value.ELEMENT) {
+                macBuyPage.waitForElementVisible('@macBuyPageIndicator');
+                macBuyPage.verify.containsText('@macBuyPageIndicator', 'Choose your new MacBook Pro.');
+            } else {
+                macBuyPage.navigate();
+                macBuyPage.waitForElementVisible('@macBuyPageIndicator');
+                macBuyPage.verify.containsText('@macBuyPageIndicator', 'Choose your new MacBook Pro.');
+            }
+        })
+
+        macBuyPage.waitForElementVisible('@macBuyPageSelectButton');
+        macBuyPage.click('@macBuyPageSelectButton');
+    },
+
+    'Customize my Macbook before purchase': function (browser) {
+        const macCustomPage = browser.page.appleMacCustomizationPage();
+
+        macCustomPage.waitForElementVisible('@macConfigMainTitle');
+        macCustomPage.verify.containsText('@macConfigMainTitle', 'Customize your 13‑inch MacBook Pro - Space Gray')
     }
 }
