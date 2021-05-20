@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local'],
     'Navigate to Apple Homepage in U.S': function (browser) {
         const appleHome = browser.page.appleHomePage();
 

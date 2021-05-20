@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Verify user can navigate to Amazon homepage by URL': function (browser) {
         const amazonHome = browser.page.amazonHomePage();
 
