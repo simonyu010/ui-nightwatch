@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Verify user can navigate to AmazonUS by inputting zip code': function (browser) {
         const amazonHome = browser.page.amazonHomePage();
 

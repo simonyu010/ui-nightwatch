@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Navigate to Kotobank homepage': function (browser) {
         browser.url('https://kotobank.jp/');
         browser.verify.urlContains('kotobank.jp');

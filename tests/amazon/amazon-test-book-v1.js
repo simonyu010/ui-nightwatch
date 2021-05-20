@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Navigate to Amazon homepage': function (browser) {
         browser.url('https://www.amazon.com/');
         browser.waitForElementVisible('[id="twotabsearchtextbox"]', 15000);

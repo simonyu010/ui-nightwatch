@@ -6,6 +6,6 @@ module.exports = {
         searchResults: { selector: '[id="search"]' },
         directionsButton: { selector: '[style="cursor:pointer"] > div:nth-child(1)' },
         destinationInput: { selector: '[id="directions-searchbox-1"] input' },
-        logoPicture: { selector: '[id="hplogo"]' },
+        logoPicture: { selector: '[alt="Google"]' },
     }
 }

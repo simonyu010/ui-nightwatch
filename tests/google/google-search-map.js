@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Verify if user can navigate to google': function (browser) {
         const google = browser.page.googleHomePage();
 

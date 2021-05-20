@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['local', 'headless'],
     'Navigate to Kotobank homepage': function (browser) {
         const kotobank = browser.page.kotobankHomePage()
         kotobank.navigate();
