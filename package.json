@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "local": "nightwatch --config ./nightwatch.conf.js",
-    "headless": "nightwatch --config ./headless.conf.js",
-    "tag-local": "nightwatch --config ./nightwatch.conf.js --tag",
-    "tag-headless": "nightwatch --config ./headless.conf.js --tag"
+    "headless": "nightwatch --config ./headless.conf.js"
   },
   "repository": {
     "type": "git",
