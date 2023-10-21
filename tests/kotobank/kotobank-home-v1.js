@@ -10,7 +10,6 @@ module.exports = {
     'Search for ポケモン': function(browser) {
         browser.waitForElementVisible('[id="search_input"]', 15000);
         browser.getAttribute('[id="search_input"]', 'type', function(result){
-            console.log(result);
             browser.verify.equal(result.value, 'text');
         })
         browser.setValue('[id="search_input"]', 'ポケモン');
@@ -21,9 +20,9 @@ module.exports = {
 
     'Check VOYAGE tab': function (browser) {
         browser.back(); 
-        browser.waitForElementVisible('[id="sponsor"] img', 15000);
-        browser.click('[id="sponsor"] img'); 
-        browser.waitForElementVisible('[src="assets/img/vmlogo_white.png"]', 15000);
-        browser.expect.element('[id="pc-menu"] > ul:nth-child(2) > li:nth-child(2) > a').text.to.contain('会社概要');
+        browser.waitForElementVisible('[alt="C-POT"]', 15000);
+        browser.click('[alt="C-POT"]'); 
+        browser.waitForElementVisible('[class="cpot-main-logo"]', 15000);
+        browser.verify.visible('[alt="Apollo"]');
     }
 }
